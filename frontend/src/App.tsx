@@ -34,9 +34,9 @@ function App() {
   });
 
   return (
-    <div className="w-[100vw] p-6">
+    <div className="w-[100vw] flex justify-center h-[100vh] p-6 bg-[url('/bg.avif')] bg-cover bg-center text-violet-900">
       {roomId ? (
-        <div className="flex flex-col gap-4 justify-center items-center">
+        <div className="flex flex-col gap-4 mt-12 items-center">
           <h1>Real Time Quiz</h1>
           <p>
             <i>Quiz ID: {roomId}</i>

@@ -65,13 +65,13 @@ export const Quiz = memo(({ roomId, increaseScore }: Props) => {
 
   return question ? (
     <Profiler id="Quiz" onRender={onRender}>
-      <div className="p-6 bg-slate-800 mt-6 rounded-lg">
-        <h2 className="text-3xl">{question.label}</h2>
+      <div className="p-10 bg-violet-500 mt-2 rounded-lg">
+        <h2 className="text-3xl text-white">{question.label}</h2>
         <ul className="flex flex-col gap-3 mt-4">
           {question.options.map((value: Option, index: number) => {
             return (
               <li
-                className="px-4 py-2 text-2xl text-white rounded-lg bg-teal-800 hover:bg-teal-600 cursor-pointer text-center"
+                className="px-4 py-2 text-2xl text-white rounded-lg bg-violet-700 hover:bg-violet-600 cursor-pointer text-center"
                 key={index}
                 onClick={() => onAnswer(index)}
               >

@@ -54,22 +54,27 @@ export const Join = memo(({ changeRoomId }: Props) => {
 
   return (
     <Profiler id="Join" onRender={onRender}>
-      <div className="flex flex-col gap-4 justify-center items-center">
+      <div className="flex flex-col gap-4 justify-center items-center mt-[-100px]">
         <h1>Join Real Time Quiz</h1>
         <form className="flex flex-col gap-4" onSubmit={(e) => onFormSubmit(e)}>
           <input
-            className="rounded-lg text-white px-4 py-2 text-2xl"
+            className="rounded-lg text-violet-900 px-4 py-2 text-2xl bg-white focus:outline-none"
             type="text"
             name="name"
             placeholder="Enter your name"
           />
           <input
             name="roomId"
-            className="rounded-lg text-white px-4 py-2 text-2xl"
+            className="rounded-lg text-violet-900 px-4 py-2 text-2xl bg-white focus:outline-none"
             type="text"
             placeholder="Enter a test ID"
           />
-          <button type="submit">JOIN</button>
+          <button
+            className="bg-violet-600 hover:bg-violet-500 text-white mt-2"
+            type="submit"
+          >
+            JOIN
+          </button>
         </form>
       </div>
     </Profiler>

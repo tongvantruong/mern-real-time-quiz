@@ -38,7 +38,7 @@ export const Leaderboard = memo(() => {
 
   return (
     <Profiler id="Leaderboard" onRender={onRender}>
-      <div className="p-4 bg-slate-700 rounded-lg flex flex-col items-center">
+      <div className="p-4 bg-violet-300 rounded-lg flex flex-col items-center">
         <h2 className="text-xl">
           Leaderboard <i>({playerScores.length} players)</i>
         </h2>
@@ -46,7 +46,7 @@ export const Leaderboard = memo(() => {
           {playerScores.map((player, index) => {
             return (
               <li key={index} className="flex justify-between w-full gap-2">
-                <i>{`${player.name}:`}</i> <b>{player.score}</b>
+                {`${player.name}:`} <b>{player.score}</b>
               </li>
             );
           })}
