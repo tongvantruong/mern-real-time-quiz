@@ -50,3 +50,12 @@ pnpm run dev
 ```
 Open http://localhost:5173
 
+## Run unit test
+
+I have added only one test file for the most important component https://github.com/tongvantruong/mern-real-time-quiz/blob/main/frontend/src/components/Join.test.tsx 
+
+```
+cd frontend
+pnpm test
+```
+
