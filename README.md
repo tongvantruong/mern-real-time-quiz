@@ -38,10 +38,12 @@ I will go with MongoDB as a non-SQL, cross flatform and document-oriented databa
 ## Run in local environment
 
 ```
+// Terminal 1
 cd backend
 pnpm i
 pnpm start
 
+// Terminal 2
 cd ../frontend
 pnpm i
 pnpm run dev
