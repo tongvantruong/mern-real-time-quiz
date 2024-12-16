@@ -1,16 +1,16 @@
-import React, { memo, Profiler } from "react";
+import { memo, Profiler } from "react";
 
 type Props = {
   score: number;
 };
 
 function onRender(
-  id,
-  phase,
-  actualDuration,
-  baseDuration,
-  startTime,
-  commitTime
+  id: unknown,
+  phase: unknown,
+  actualDuration: unknown,
+  baseDuration: unknown,
+  startTime: unknown,
+  commitTime: unknown
 ) {
   console.log(`-------- render ${id} -------`);
   console.log(`phase: ${phase}`);

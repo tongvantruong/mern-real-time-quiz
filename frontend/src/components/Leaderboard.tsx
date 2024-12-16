@@ -1,4 +1,4 @@
-import React, { memo, Profiler, useContext, useEffect, useState } from "react";
+import { memo, Profiler, useContext, useEffect, useState } from "react";
 import type { PlayerScore } from "backend/models";
 import { SocketContext } from "../context/socket";
 
@@ -21,12 +21,12 @@ export const Leaderboard = memo(() => {
   });
 
   function onRender(
-    id,
-    phase,
-    actualDuration,
-    baseDuration,
-    startTime,
-    commitTime
+    id: unknown,
+    phase: unknown,
+    actualDuration: unknown,
+    baseDuration: unknown,
+    startTime: unknown,
+    commitTime: unknown
   ) {
     console.log(`-------- render ${id} -------`);
     console.log(`phase: ${phase}`);

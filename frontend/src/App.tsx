@@ -2,7 +2,6 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React from "react";
 import { Leaderboard } from "./components/Leaderboard";
 import { Score } from "./components/Score";
 import { Quiz } from "./components/Quiz";

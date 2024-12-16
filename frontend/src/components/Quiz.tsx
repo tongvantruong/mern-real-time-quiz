@@ -1,4 +1,4 @@
-import React, { memo, Profiler, useContext, useEffect, useState } from "react";
+import { memo, Profiler, useContext, useEffect, useState } from "react";
 import type { Option, Question } from "backend/models";
 import { toast } from "react-toastify";
 import { SocketContext } from "../context/socket";
@@ -48,12 +48,12 @@ export const Quiz = memo(({ roomId, increaseScore }: Props) => {
   }
 
   function onRender(
-    id,
-    phase,
-    actualDuration,
-    baseDuration,
-    startTime,
-    commitTime
+    id: unknown,
+    phase: unknown,
+    actualDuration: unknown,
+    baseDuration: unknown,
+    startTime: unknown,
+    commitTime: unknown
   ) {
     console.log(`-------- render ${id} -------`);
     console.log(`phase: ${phase}`);
