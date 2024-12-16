@@ -23,3 +23,5 @@ I will use NodeJS as a web server, ExpressJS as a web framework so we can easy c
 
 I will go with MongoDB as a non-SQL, cross flatform and document-oriented database which is easy to scale, high performance for a real time app.
 
+**So in this project, we will take advantages of the MERN techstacks: MongoDB, ExpressJS, ReactJS, NodeJS**
+
