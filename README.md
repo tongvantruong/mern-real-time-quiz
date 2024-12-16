@@ -31,3 +31,7 @@ I will go with MongoDB as a non-SQL, cross flatform and document-oriented databa
 
 **So in this project, we will take advantages of the MERN techstacks: MongoDB, ExpressJS, ReactJS, NodeJS**
 
+## Sequence Diagram
+
+<img width="566" alt="Screenshot 2024-12-16 at 12 52 27" src="https://github.com/user-attachments/assets/6b9b28d2-bcc8-4fe4-a330-4f2d500c71ff" />
+
