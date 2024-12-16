@@ -39,22 +39,20 @@ io.on("connection", (socket) => {
     });
     socket.on("disconnect", () => {
         console.log(`a player was disconnected: ${socket.id}`);
-        console.log(JSON.stringify(rooms.size));
-        for (let [roomId, room] of rooms) {
-            console.log(roomId);
-            console.log(JSON.stringify(room));
-            if (room.players.find((p) => p.id === socket.id)) {
-                console.log(room.players.length);
-                const newPlayers = room.players.filter((p) => p.id !== socket.id);
+        deletePlayer(socket.id);
+    });
+    function deletePlayer(playerId) {
+        for (let [_, room] of rooms) {
+            if (room.players.find((p) => p.id === playerId)) {
+                const newPlayers = room.players.filter((p) => p.id !== playerId);
                 room.players = newPlayers;
                 const playerScores = room.players.map((p) => {
                     return { name: p.name, score: p.correctQuestions.length };
                 });
-                console.log(room.players.length);
                 io.to(room.id).emit("updateLeaderboard", playerScores);
             }
         }
-    });
+    }
     function createNewRoom(roomId, name) {
         if (!rooms.get(roomId)) {
             initRoom(roomId);
