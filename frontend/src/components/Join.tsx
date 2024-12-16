@@ -35,6 +35,7 @@ export const Join = memo(({ changeRoomId }: Props) => {
     socket.emit("joinQuiz", roomId.current, name.current);
   }
 
+  // to measure rendering performance of a React tree programmatically
   function onRender(
     id,
     phase,
