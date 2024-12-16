@@ -1,0 +1,92 @@
+[
+  {
+    "label": "The best way to learn a language is ______ a little every day.",
+    "options": [
+      { "label": "speak", "isCorrect": false },
+      { "label": "in speaking", "isCorrect": false },
+      { "label": "to speaking", "isCorrect": false },
+      { "label": "by speaking", "isCorrect": true }
+    ]
+  },
+  {
+    "label": "The doctor gave me a ______ for some medicine yesterday.",
+    "options": [
+      { "label": "note", "isCorrect": false },
+      { "label": "receipt", "isCorrect": false },
+      { "label": "prescription", "isCorrect": true },
+      { "label": "recipe", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "\"Where's the ______ post office, please?\"",
+    "options": [
+      { "label": "most near", "isCorrect": false },
+      { "label": "near", "isCorrect": false },
+      { "label": "more near", "isCorrect": false },
+      { "label": "nearest", "isCorrect": true }
+    ]
+  },
+  {
+    "label": "She has been ______ of murdering her husband.",
+    "options": [
+      { "label": "charged", "isCorrect": false },
+      { "label": "accused", "isCorrect": true },
+      { "label": "arrested", "isCorrect": false },
+      { "label": "blamed", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "She ______ me to go to school.",
+    "options": [
+      { "label": "said", "isCorrect": false },
+      { "label": "told", "isCorrect": true },
+      { "label": "suggested", "isCorrect": false },
+      { "label": "made", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "It ______ my brother.",
+    "options": [
+      { "label": "is ages that I didn't see", "isCorrect": false },
+      { "label": "is ages since I saw", "isCorrect": true },
+      { "label": "was ages that I haven't seen", "isCorrect": false },
+      { "label": "was ages since I saw", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "\"Why are you so hungry?\" \"Oh, I ______ breakfast this morning.\"",
+    "options": [
+      { "label": "hadn't", "isCorrect": false },
+      { "label": "didn't", "isCorrect": false },
+      { "label": "didn't have", "isCorrect": true },
+      { "label": "haven't", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "I'd like ______ information, please.",
+    "options": [
+      { "label": "an", "isCorrect": false },
+      { "label": "some", "isCorrect": true },
+      { "label": "piece", "isCorrect": false },
+      { "label": "a piece", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "Would you mind ______ the window?",
+    "options": [
+      { "label": "closing", "isCorrect": true },
+      { "label": "close", "isCorrect": false },
+      { "label": "to close", "isCorrect": false },
+      { "label": "closed", "isCorrect": false }
+    ]
+  },
+  {
+    "label": "His office is on the second ______ of the building.",
+    "options": [
+      { "label": "floor", "isCorrect": true },
+      { "label": "level", "isCorrect": false },
+      { "label": "ground", "isCorrect": false },
+      { "label": "stage", "isCorrect": false }
+    ]
+  }
+]
