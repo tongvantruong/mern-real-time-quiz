@@ -2,7 +2,8 @@
 
 ## Architecture Diagram
 
-<img width="988" alt="Screenshot 2024-12-16 at 09 27 32" src="https://github.com/user-attachments/assets/26be0805-c1ec-480b-984b-97862180dd77" />
+<img width="794" alt="Screenshot 2024-12-16 at 12 38 17" src="https://github.com/user-attachments/assets/5eda1828-3566-4813-98a5-05f178361aa5" />
+
 
 ### FRONTEND
 
@@ -14,6 +15,8 @@ We should have 2 screens like below
 **Techstack**
 
 I was considering betwee the 3 frontend frameworks/librarys that I have experience: ReactJS, VueJS or Flutter. Then I chose the most famous one which is ReactJS so we can go with MERN techstacks
+
+For styling, I will take advantages of utility classes from TailwindCSS to build the UI faster.
 
 ### BACKEND
 
