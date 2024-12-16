@@ -35,3 +35,16 @@ I will go with MongoDB as a non-SQL, cross flatform and document-oriented databa
 
 <img width="566" alt="Screenshot 2024-12-16 at 12 52 27" src="https://github.com/user-attachments/assets/6b9b28d2-bcc8-4fe4-a330-4f2d500c71ff" />
 
+## Run in local environment
+
+```
+cd backend
+pnpm i
+pnpm start
+
+cd ../frontend
+pnpm i
+pnpm run dev
+```
+Open http://localhost:5173
+
