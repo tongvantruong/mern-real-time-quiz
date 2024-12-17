@@ -30,7 +30,6 @@ io.on("connection", (socket) => {
   console.log(`a player was connected: ${socket.id}`);
 
   socket.on("joinQuiz", (roomId, name) => {
-    console.log("join:" + JSON.stringify(rooms));
     socket.join(roomId);
     io.to(roomId).emit("message", `${name} has joined`);
 
@@ -42,7 +41,6 @@ io.on("connection", (socket) => {
     saveAnswerToPlayer(currentRoom, question, isCorrect);
     emitLeaderboard(currentRoom);
     showNextQuestion(currentRoom);
-    console.log("submitAnswer:" + JSON.stringify(rooms.size));
   });
 
   socket.on("disconnect", () => {
