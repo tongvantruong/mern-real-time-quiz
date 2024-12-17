@@ -45,8 +45,19 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log(`a player was disconnected: ${socket.id}`);
+    notifyRoom(socket.id);
     deletePlayer(socket.id);
   });
+
+  function notifyRoom(playerId: string) {
+    for (let [_, room] of rooms) {
+      const currentPlayer = room.players.find((p) => p.id === playerId);
+      if (currentPlayer) {
+        io.to(room.id).emit("message", `${currentPlayer.name} has left.`);
+        break;
+      }
+    }
+  }
 
   function deletePlayer(playerId: string) {
     for (let [_, room] of rooms) {
@@ -57,6 +68,7 @@ io.on("connection", (socket) => {
           return { name: p.name, score: p.correctQuestions.length };
         });
         io.to(room.id).emit("updateLeaderboard", playerScores);
+        break;
       }
     }
   }
