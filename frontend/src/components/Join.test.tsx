@@ -14,6 +14,10 @@ vi.mock("socket.io-client", () => {
   return { default: vi.fn(() => mSocket) };
 });
 
+vi.mock("../hooks/useAutocomplete", () => ({
+  useAutocomplete: () => vi.fn(),
+}));
+
 it("should match snapshot", () => {
   const mockChangeRoomId = vi.fn();
   const { container } = render(
