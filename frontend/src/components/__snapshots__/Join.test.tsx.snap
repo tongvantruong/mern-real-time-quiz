@@ -20,9 +20,10 @@ exports[`should match snapshot 1`] = `
       <input
         class="rounded-lg text-violet-900 px-4 py-2 text-2xl bg-white focus:outline-none"
         name="roomId"
-        placeholder="Enter a test ID"
+        placeholder="Enter a quiz ID"
         type="text"
       />
+      <ul />
       <button
         class="bg-violet-600 hover:bg-violet-500 text-white mt-2"
         type="submit"

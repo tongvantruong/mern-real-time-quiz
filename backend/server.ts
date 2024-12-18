@@ -29,6 +29,8 @@ const rooms: Map<String, Room> = new Map();
 io.on("connection", (socket) => {
   console.log(`a player was connected: ${socket.id}`);
 
+  sendListOfRoom(socket.id);
+
   socket.on("joinQuiz", (roomId, name) => {
     socket.join(roomId);
     io.to(roomId).emit("message", `${name} has joined`);
@@ -48,6 +50,16 @@ io.on("connection", (socket) => {
     notifyRoom(socket.id);
     deletePlayer(socket.id);
   });
+
+  function sendListOfRoom(playerId: string) {
+    let roomIds = [];
+    for (let roomId of rooms.keys()) {
+      roomIds.push(roomId);
+    }
+    if (roomIds.length > 0) {
+      io.to(playerId).emit("getRoomIds", roomIds);
+    }
+  }
 
   function notifyRoom(playerId: string) {
     for (let [_, room] of rooms) {

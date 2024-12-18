@@ -24,8 +24,8 @@ const io = new socket_io_1.Server(server, {
 const rooms = new Map();
 io.on("connection", (socket) => {
     console.log(`a player was connected: ${socket.id}`);
+    sendListOfRoom(socket.id);
     socket.on("joinQuiz", (roomId, name) => {
-        console.log("join:" + JSON.stringify(rooms));
         socket.join(roomId);
         io.to(roomId).emit("message", `${name} has joined`);
         createNewRoom(roomId, name);
@@ -35,12 +35,30 @@ io.on("connection", (socket) => {
         saveAnswerToPlayer(currentRoom, question, isCorrect);
         emitLeaderboard(currentRoom);
         showNextQuestion(currentRoom);
-        console.log("submitAnswer:" + JSON.stringify(rooms.size));
     });
     socket.on("disconnect", () => {
         console.log(`a player was disconnected: ${socket.id}`);
+        notifyRoom(socket.id);
         deletePlayer(socket.id);
     });
+    function sendListOfRoom(playerId) {
+        let roomIds = [];
+        for (let roomId of rooms.keys()) {
+            roomIds.push(roomId);
+        }
+        if (roomIds.length > 0) {
+            io.to(playerId).emit("getRoomIds", roomIds);
+        }
+    }
+    function notifyRoom(playerId) {
+        for (let [_, room] of rooms) {
+            const currentPlayer = room.players.find((p) => p.id === playerId);
+            if (currentPlayer) {
+                io.to(room.id).emit("message", `${currentPlayer.name} has left.`);
+                break;
+            }
+        }
+    }
     function deletePlayer(playerId) {
         for (let [_, room] of rooms) {
             if (room.players.find((p) => p.id === playerId)) {
@@ -50,6 +68,7 @@ io.on("connection", (socket) => {
                     return { name: p.name, score: p.correctQuestions.length };
                 });
                 io.to(room.id).emit("updateLeaderboard", playerScores);
+                break;
             }
         }
     }

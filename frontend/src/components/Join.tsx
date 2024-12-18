@@ -1,6 +1,14 @@
-import React, { memo, Profiler, useContext, useRef } from "react";
+import React, {
+  memo,
+  Profiler,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { toast } from "react-toastify";
 import { SocketContext } from "../context/socket";
+import { useAutocomplete } from "../hooks/useAutocomplete";
 
 type Props = {
   changeRoomId: (id: string) => void;
@@ -9,8 +17,20 @@ type Props = {
 export const Join = memo(({ changeRoomId }: Props) => {
   const name = useRef<string>();
   const roomId = useRef<string>();
+  const [availableRoomIds, setAvailableRoomIds] = useState<string[]>([]);
 
   const socket = useContext(SocketContext);
+
+  useEffect(() => {
+    socket.on("getRoomIds", (ids: string[]) => {
+      setAvailableRoomIds(() => {
+        return ids;
+      });
+    });
+    return () => {
+      socket.off("getRoomIds");
+    };
+  });
 
   function onFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,6 +54,11 @@ export const Join = memo(({ changeRoomId }: Props) => {
 
     socket.emit("joinQuiz", roomId.current, name.current);
   }
+
+  const { autocomplete } = useAutocomplete({
+    input: document.querySelector("input[name='roomId']") as HTMLInputElement,
+    options: availableRoomIds,
+  });
 
   // to measure rendering performance of a React tree programmatically
   function onRender(
@@ -63,14 +88,17 @@ export const Join = memo(({ changeRoomId }: Props) => {
             name="name"
             placeholder="Enter your name"
           />
-          <input
-            name="roomId"
-            className="rounded-lg text-violet-900 px-4 py-2 text-2xl bg-white focus:outline-none"
-            type="text"
-            placeholder="Enter a test ID"
-          />
+          <div className="relative">
+            <input
+              name="roomId"
+              className="rounded-lg text-violet-900 px-4 py-2 text-2xl bg-white focus:outline-none"
+              type="text"
+              placeholder="Enter a quiz ID"
+              onInput={autocomplete}
+            />
+          </div>
           <button
-            className="bg-violet-600 hover:bg-violet-500 text-white mt-2"
+            className="bg-violet-600 hover:bg-violet-500 text-white mt-2 outline-0"
             type="submit"
           >
             JOIN
